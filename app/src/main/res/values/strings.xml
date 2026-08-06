@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Eredivisie Ranking</string>
+
+    <string name="menu_predictions">Voorspellingen</string>
+    <string name="menu_teams">Teams beheren</string>
+    <string name="menu_players">Spelers beheren</string>
+    <string name="menu_round">Speelronde invoeren</string>
+    <string name="menu_standings">Tussenstand</string>
+
+    <string name="title_teams">Teams (%1$d)</string>
+    <string name="add_team">Team toevoegen</string>
+    <string name="reset_default_teams">Standaardlijst terugzetten</string>
+    <string name="warning_team_count">Let op: er zijn %1$d teams, voor een correcte ranking zijn er 18 nodig.</string>
+
+    <string name="title_players">Spelers</string>
+    <string name="add_player">Speler toevoegen</string>
+
+    <string name="title_ranking">Ranking: %1$s</string>
+    <string name="ranking_instructions">Zet de teams op volgorde van positie 1 (kampioen) tot en met 18 (laatste). Gebruik de pijltjes om te verplaatsen.</string>
+    <string name="save_ranking">Voorspelling opslaan</string>
+    <string name="ranking_saved">Voorspelling opgeslagen voor %1$s</string>
+
+    <string name="title_round_entry">Speelronde invoeren</string>
+    <string name="round_number">Speelronde nummer</string>
+    <string name="round_instructions">Zet de teams op de huidige, echte Eredivisie-ranglijst na deze speelronde.</string>
+    <string name="load_round">Laden / nieuw</string>
+    <string name="save_round">Uitslag speelronde opslaan</string>
+    <string name="round_saved">Speelronde %1$d opgeslagen</string>
+    <string name="delete_round">Verwijderen</string>
+
+    <string name="title_standings">Tussenstand</string>
+    <string name="no_rounds_yet">Nog geen speelrondes ingevoerd.</string>
+    <string name="total_points">Totaal: %1$d punten</string>
+    <string name="round_points">Ronde %1$d: %2$d punten</string>
+
+    <string name="move_up">Omhoog</string>
+    <string name="move_down">Omlaag</string>
+    <string name="delete">Verwijderen</string>
+    <string name="rename">Naam</string>
+    <string name="cancel">Annuleren</string>
+    <string name="ok">OK</string>
+    <string name="team_name_hint">Teamnaam</string>
+    <string name="player_name_hint">Naam speler</string>
+
+    <string name="scoring_explanation">Score per speelronde: exacte positie = 3 punten, 1 plek ernaast = 1 punt.</string>
+</resources>
