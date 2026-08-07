@@ -11,6 +11,7 @@ class PlayerAdapter(
     private val items: MutableList<Player>,
     private val hasPrediction: (Player) -> Boolean,
     private val onRank: (Player) -> Unit,
+    private val onShare: (Player) -> Unit,
     private val onDelete: (Player) -> Unit
 ) : RecyclerView.Adapter<PlayerAdapter.ViewHolder>() {
 
@@ -18,6 +19,7 @@ class PlayerAdapter(
         val name: TextView = view.findViewById(R.id.textPlayerName)
         val status: TextView = view.findViewById(R.id.textStatus)
         val rank: Button = view.findViewById(R.id.buttonRank)
+        val share: Button = view.findViewById(R.id.buttonShare)
         val delete: Button = view.findViewById(R.id.buttonDelete)
     }
 
@@ -44,6 +46,7 @@ class PlayerAdapter(
             )
         )
         holder.rank.setOnClickListener { onRank(player) }
+        holder.share.setOnClickListener { onShare(player) }
         holder.delete.setOnClickListener { onDelete(player) }
     }
 

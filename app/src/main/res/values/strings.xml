@@ -15,11 +15,20 @@
 
     <string name="title_players">Spelers</string>
     <string name="add_player">Speler toevoegen</string>
+    <string name="import_prediction">Voorspelling importeren</string>
+    <string name="share_prediction_title">Voorspelling delen</string>
+    <string name="share_no_prediction">%1$s heeft nog geen voorspelling ingevuld.</string>
+    <string name="share_chooser_title">Voorspelling van %1$s delen</string>
+    <string name="import_dialog_hint">Plak hier de code die je ontving</string>
+    <string name="import_success">Voorspelling van %1$s geïmporteerd.</string>
+    <string name="import_failed">Kon deze code niet lezen. Controleer of je alles hebt geplakt.</string>
 
     <string name="title_ranking">Ranking: %1$s</string>
     <string name="ranking_instructions">Zet de teams op volgorde van positie 1 (kampioen) tot en met 18 (laatste). Gebruik de pijltjes om te verplaatsen.</string>
     <string name="save_ranking">Voorspelling opslaan</string>
     <string name="ranking_saved">Voorspelling opgeslagen voor %1$s</string>
+    <string name="deadline_passed_title">Deadline verstreken</string>
+    <string name="deadline_passed_message">De deadline van 18:00 vandaag is verstreken. Deze voorspelling kan niet meer gewijzigd worden.</string>
 
     <string name="title_round_entry">Speelronde invoeren</string>
     <string name="round_number">Speelronde nummer</string>
@@ -28,6 +37,10 @@
     <string name="save_round">Uitslag speelronde opslaan</string>
     <string name="round_saved">Speelronde %1$d opgeslagen</string>
     <string name="delete_round">Verwijderen</string>
+    <string name="paste_list">Lijst plakken (ipv pijltjes)</string>
+    <string name="paste_dialog_title">Plak de ranglijst (1 team per regel, positie 1 bovenaan)</string>
+    <string name="paste_dialog_hint">Bijv.\nAjax\nPSV\nFeyenoord\n...</string>
+    <string name="paste_success">Volgorde overgenomen. Controleer en druk daarna op opslaan.</string>
 
     <string name="title_standings">Tussenstand</string>
     <string name="no_rounds_yet">Nog geen speelrondes ingevoerd.</string>

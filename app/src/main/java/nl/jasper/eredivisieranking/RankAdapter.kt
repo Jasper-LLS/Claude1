@@ -12,7 +12,8 @@ import androidx.recyclerview.widget.RecyclerView
  * player's predicted ranking and for entering the actual round standings.
  */
 class RankAdapter(
-    private val items: MutableList<Team>
+    private val items: MutableList<Team>,
+    var locked: Boolean = false
 ) : RecyclerView.Adapter<RankAdapter.ViewHolder>() {
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -23,6 +24,11 @@ class RankAdapter(
     }
 
     fun getItems(): List<Team> = items
+
+    fun applyLocked(value: Boolean) {
+        locked = value
+        notifyDataSetChanged()
+    }
 
     fun setItems(newItems: List<Team>) {
         items.clear()
@@ -41,8 +47,10 @@ class RankAdapter(
         holder.position.text = "${position + 1}."
         holder.name.text = team.name
 
-        holder.up.isEnabled = position > 0
-        holder.down.isEnabled = position < items.size - 1
+        holder.up.isEnabled = !locked && position > 0
+        holder.down.isEnabled = !locked && position < items.size - 1
+        holder.up.visibility = if (locked) View.INVISIBLE else View.VISIBLE
+        holder.down.visibility = if (locked) View.INVISIBLE else View.VISIBLE
 
         holder.up.setOnClickListener {
             val idx = holder.bindingAdapterPosition

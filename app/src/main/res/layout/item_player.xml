@@ -33,6 +33,15 @@
         android:minWidth="0dp" />
 
     <Button
+        android:id="@+id/buttonShare"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="↗"
+        android:minWidth="0dp"
+        android:layout_marginStart="4dp" />
+
+    <Button
         android:id="@+id/buttonDelete"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"

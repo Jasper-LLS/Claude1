@@ -35,11 +35,31 @@ class RankingActivity : AppCompatActivity() {
         // Append any teams not present in the saved order yet (e.g. newly added teams)
         for (t in teams) if (orderedTeams.none { it.id == t.id }) orderedTeams.add(t)
 
-        adapter = RankAdapter(orderedTeams)
+        val locked = Deadline.isPast()
+        adapter = RankAdapter(orderedTeams, locked = locked)
         binding.recyclerRanking.layoutManager = LinearLayoutManager(this)
         binding.recyclerRanking.adapter = adapter
 
+        if (locked) {
+            binding.textDeadline.text = getString(R.string.deadline_passed_message)
+            binding.textDeadline.setTextColor(getColor(R.color.orange_dark))
+            binding.buttonSave.isEnabled = false
+            binding.buttonSave.alpha = 0.4f
+        } else {
+            binding.textDeadline.text = Deadline.remainingText()
+            binding.textDeadline.setTextColor(getColor(R.color.green_ok))
+        }
+
         binding.buttonSave.setOnClickListener {
+            if (Deadline.isPast()) {
+                adapter.applyLocked(true)
+                binding.textDeadline.text = getString(R.string.deadline_passed_message)
+                binding.textDeadline.setTextColor(getColor(R.color.orange_dark))
+                binding.buttonSave.isEnabled = false
+                binding.buttonSave.alpha = 0.4f
+                Toast.makeText(this, R.string.deadline_passed_title, Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
             repository.savePrediction(playerId, adapter.getItems().map { it.id })
             Toast.makeText(this, getString(R.string.ranking_saved, playerName), Toast.LENGTH_SHORT).show()
             finish()

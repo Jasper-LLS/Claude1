@@ -23,6 +23,35 @@ Eredivisie-clubs te maken en na elke speelronde de tussenstand te zien.
 Alle data wordt lokaal op het toestel opgeslagen (geen internet of account
 nodig).
 
+### Deadline
+
+Voorspellingen kunnen tot **18:00 uur (Nederlandse tijd)** worden ingevuld of
+gewijzigd. Daarna wordt het invulscherm read-only.
+
+### Voorspellingen delen tussen twee telefoons
+
+De app heeft geen server, dus voorspellingen staan alleen lokaal op het
+toestel waar ze zijn ingevuld. Om ze één keer uit te wisselen:
+
+1. Ga naar **Spelers** en tik op de knop **↗** naast een naam. Dit genereert
+   een code en opent het Android deelscherm (WhatsApp, sms, mail, ...).
+2. Stuur de code naar de andere telefoon.
+3. Open op die telefoon **Spelers → Voorspelling importeren**, plak de
+   ontvangen code en bevestig.
+
+Doe dit voor beide spelers (Jasper deelt naar Beau's telefoon, Beau deelt
+naar Jasper's telefoon) zodat de **Tussenstand** op beide toestellen alle
+spelers toont.
+
+### Actuele stand invoeren
+
+Naast de pijltjes-knoppen kan de echte Eredivisie-ranglijst per speelronde
+ook in één keer worden ingevoerd via **Speelronde invoeren → Lijst plakken**:
+plak een lijst van 18 teamnamen (één per regel, positie 1 bovenaan). Dit is
+ook handig in combinatie met deze chat: stuur een screenshot van de stand
+naar Claude, laat Claude de lijst als tekst teruggeven, en plak die lijst
+in de app.
+
 ## Zelf bouwen
 
 ```bash

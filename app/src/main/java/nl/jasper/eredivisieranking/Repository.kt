@@ -155,6 +155,37 @@ class Repository(context: Context) {
         prefs.edit().putString(KEY_ROUNDS, obj.toString()).apply()
     }
 
+    // ---------- Import helpers ----------
+
+    /** Finds a team by case-insensitive name match, or creates it if not present locally. */
+    fun findOrCreateTeamByName(name: String): Team {
+        val current = getTeams()
+        val normalized = name.trim().lowercase()
+        val existing = current.firstOrNull { it.name.trim().lowercase() == normalized }
+        if (existing != null) return existing
+        val newTeam = Team(id = UUID.randomUUID().toString(), name = name.trim())
+        saveTeams(current + newTeam)
+        return newTeam
+    }
+
+    /**
+     * Adds or updates a player by name (case-insensitive) and stores the given
+     * prediction for them. Used when importing a prediction shared from another
+     * install. Returns the resulting Player.
+     */
+    fun upsertPlayerPrediction(playerName: String, orderedTeamNames: List<String>): Player {
+        val current = getPlayers()
+        val normalized = playerName.trim().lowercase()
+        val existing = current.firstOrNull { it.name.trim().lowercase() == normalized }
+        val player = existing ?: Player(id = UUID.randomUUID().toString(), name = playerName.trim())
+        if (existing == null) {
+            savePlayers(current + player)
+        }
+        val teamIds = orderedTeamNames.map { findOrCreateTeamByName(it).id }
+        savePrediction(player.id, teamIds)
+        return player
+    }
+
     private fun slug(name: String): String {
         return name.lowercase()
             .replace(Regex("[^a-z0-9]+"), "_")

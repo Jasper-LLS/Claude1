@@ -22,6 +22,16 @@
         android:text="@string/ranking_instructions"
         android:textSize="14sp" />
 
+    <TextView
+        android:id="@+id/textDeadline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="8dp"
+        android:textStyle="bold"
+        android:textSize="13sp" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerRanking"
         android:layout_width="match_parent"

@@ -27,12 +27,14 @@ class PlayersActivity : AppCompatActivity() {
             players,
             hasPrediction = { repository.hasPrediction(it.id) },
             onRank = { openRanking(it) },
+            onShare = { sharePrediction(it) },
             onDelete = { deletePlayer(it) }
         )
         binding.recyclerPlayers.layoutManager = LinearLayoutManager(this)
         binding.recyclerPlayers.adapter = adapter
 
         binding.buttonAddPlayer.setOnClickListener { addPlayer() }
+        binding.buttonImport.setOnClickListener { importPrediction() }
 
         refresh()
     }
@@ -60,6 +62,48 @@ class PlayersActivity : AppCompatActivity() {
                 val updated = repository.getPlayers().filter { it.id != player.id }
                 repository.savePlayers(updated)
                 refresh()
+            }
+            .setNegativeButton(R.string.cancel, null)
+            .show()
+    }
+
+    private fun sharePrediction(player: Player) {
+        if (!repository.hasPrediction(player.id)) {
+            android.widget.Toast.makeText(
+                this, getString(R.string.share_no_prediction, player.name), android.widget.Toast.LENGTH_SHORT
+            ).show()
+            return
+        }
+        val teamsById = repository.getTeams().associateBy { it.id }
+        val orderedNames = repository.getPrediction(player.id).mapNotNull { teamsById[it]?.name }
+        val code = ShareCode.encode(player.name, orderedNames)
+
+        val sendIntent = Intent(Intent.ACTION_SEND)
+        sendIntent.type = "text/plain"
+        sendIntent.putExtra(Intent.EXTRA_TEXT, code)
+        startActivity(Intent.createChooser(sendIntent, getString(R.string.share_chooser_title, player.name)))
+    }
+
+    private fun importPrediction() {
+        val input = EditText(this)
+        input.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_MULTI_LINE
+        input.hint = getString(R.string.import_dialog_hint)
+        input.minLines = 3
+
+        AlertDialog.Builder(this)
+            .setTitle(R.string.import_prediction)
+            .setView(input)
+            .setPositiveButton(R.string.ok) { _, _ ->
+                val decoded = ShareCode.decode(input.text.toString())
+                if (decoded == null) {
+                    android.widget.Toast.makeText(this, R.string.import_failed, android.widget.Toast.LENGTH_LONG).show()
+                } else {
+                    repository.upsertPlayerPrediction(decoded.playerName, decoded.orderedTeamNames)
+                    android.widget.Toast.makeText(
+                        this, getString(R.string.import_success, decoded.playerName), android.widget.Toast.LENGTH_SHORT
+                    ).show()
+                    refresh()
+                }
             }
             .setNegativeButton(R.string.cancel, null)
             .show()
