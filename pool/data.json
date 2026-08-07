@@ -19,6 +19,27 @@
     "Telstar",
     "Willem II"
   ],
-  "predictions": {},
+  "predictions": {
+    "Jasper": [
+      "Ajax",
+      "PSV",
+      "AZ",
+      "Feyenoord",
+      "N.E.C. Nijmegen",
+      "FC Twente",
+      "Sparta Rotterdam",
+      "FC Utrecht",
+      "FC Groningen",
+      "sc Heerenveen",
+      "Fortuna Sittard",
+      "Go Ahead Eagles",
+      "Excelsior Rotterdam",
+      "PEC Zwolle",
+      "Telstar",
+      "ADO Den Haag",
+      "Willem II",
+      "SC Cambuur"
+    ]
+  },
   "rounds": {}
 }
