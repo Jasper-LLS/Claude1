@@ -61,5 +61,26 @@
       "Telstar"
     ]
   },
-  "rounds": {}
+  "rounds": {
+    "1": [
+      "Excelsior Rotterdam",
+      "Go Ahead Eagles",
+      "AZ",
+      "Ajax",
+      "FC Groningen",
+      "Telstar",
+      "Feyenoord",
+      "sc Heerenveen",
+      "Fortuna Sittard",
+      "PSV",
+      "N.E.C. Nijmegen",
+      "FC Utrecht",
+      "Sparta Rotterdam",
+      "FC Twente",
+      "ADO Den Haag",
+      "PEC Zwolle",
+      "Willem II",
+      "SC Cambuur"
+    ]
+  }
 }
