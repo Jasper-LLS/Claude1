@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hero tussenversie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ===== Gedeeld ===== */
+*{box-sizing:border-box}
+body{margin:0;font-family:Poppins,sans-serif;background:#fff;color:#485559}
+.ov-preview-label{font:600 13px/1 ui-monospace,monospace;color:#7A7D84;padding:24px 64px 10px;letter-spacing:.04em;text-transform:uppercase}
+.ov-h1{margin:0;font-weight:700;font-size:52px;line-height:1.12;letter-spacing:-0.02em;text-wrap:balance}
+.ov-intro{margin:0;font-weight:400;font-size:20px;line-height:1.5}
+.ov-cta{display:flex;align-items:center;justify-content:center;width:100%;min-height:58px;padding:0 26px;border-radius:10px;background:#00C75D;color:#1C2426;font:700 17px Poppins,sans-serif;text-decoration:none;white-space:nowrap;transition:filter .15s}
+.ov-cta:hover{filter:brightness(.94)}
+.ov-cta:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(0,199,93,.35)}
+
+/* ===== Variant 1a — split, licht ===== */
+.ov-1a{background:#F7FEFC}
+.ov-1a .ov-wrap{max-width:1440px;margin:0 auto;padding:72px 64px 64px;display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
+.ov-1a .ov-left{display:flex;flex-direction:column;gap:28px}
+.ov-badge{display:flex;align-items:center;gap:10px;font:600 14px/1.4 Poppins,sans-serif;color:#485559}
+.ov-badge::before{content:"";flex:none;width:8px;height:8px;border-radius:999px;background:#00C75D}
+.ov-1a .ov-intro{max-width:540px;color:#4A4F59}
+.ov-card-1a{max-width:600px;background:#fff;border:1px solid #E4E1D9;border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:18px;box-shadow:0 12px 32px -16px rgba(27,35,51,.18)}
+.ov-trust{display:flex;flex-wrap:wrap;gap:18px;margin:0;padding:0;list-style:none;font:500 14px/1.4 Poppins,sans-serif;color:#4A4F59}
+.ov-trust li::before{content:"✓";font-weight:800;color:#00C75D;margin-right:6px}
+
+.ov-1a .ov-right{position:relative;height:600px}
+.ov-photo{position:absolute;inset:0 0 0 60px;width:calc(100% - 60px);height:100%;object-fit:cover;border-radius:18px;background:#EFECE5}
+.ov-quote{position:absolute;left:0;bottom:40px;width:440px;background:#fff;border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:14px;box-shadow:0 24px 60px -20px rgba(27,35,51,.35)}
+.ov-quote-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.ov-quote-head strong{font:700 17px Poppins,sans-serif;color:#485559}
+.ov-quote-head span{font:500 12px ui-monospace,monospace;color:#7A7D84}
+.ov-rows{display:flex;flex-direction:column;gap:8px}
+.ov-row{display:flex;align-items:center;gap:12px;padding:12px 14px;border:1.5px solid #EBE8E1;border-radius:10px}
+.ov-row.is-best{border-color:#00C75D;background:#F7FEFC}
+.ov-letter{flex:none;width:36px;height:36px;border-radius:8px;background:#EFECE5;display:grid;place-items:center;font:700 15px Poppins,sans-serif;color:#485559}
+.ov-who{flex:1;min-width:0}
+.ov-who b{display:block;font:600 15px Poppins,sans-serif;color:#485559}
+.ov-who small{display:block;font:400 13px Poppins,sans-serif;color:#6B6E75}
+.ov-price{text-align:right}
+.ov-price b{display:block;font:700 17px Poppins,sans-serif;color:#485559}
+.ov-price small{display:block;font:600 12px Poppins,sans-serif;color:#00803C}
+.ov-note{background:#F3F1EC;border-radius:8px;padding:10px 12px;font:600 14px/1.45 Poppins,sans-serif;color:#485559}
+.ov-note span{display:block;font-weight:400;color:#5D6A6E}
+
+.ov-bar{border-top:1px solid #EBE8E1;background:#F7FEFC}
+.ov-bar .ov-bar-in{max-width:1440px;margin:0 auto;padding:22px 64px;display:flex;justify-content:space-between;align-items:center;gap:16px 40px;flex-wrap:wrap}
+.ov-bar-l{font:600 15px Poppins,sans-serif;color:#485559}
+.ov-bar-r{display:flex;gap:40px;flex-wrap:wrap;font:500 15px Poppins,sans-serif;color:#4A4F59}
+.ov-bar-r b{font-weight:700;color:#485559}
+
+/* ===== Variant 1b — donker ===== */
+.ov-1b{background:#485559}
+.ov-1b .ov-wrap{max-width:1440px;margin:0 auto;padding:72px 64px 80px;display:grid;grid-template-columns:minmax(0,1fr) 520px;gap:72px;align-items:center}
+.ov-1b .ov-left{display:flex;flex-direction:column;gap:28px}
+.ov-1b .ov-h1{color:#fff}
+.ov-1b .ov-intro{max-width:560px;color:#D6DAE2}
+.ov-usp{display:flex;flex-direction:column;gap:14px;margin:0;padding:0;list-style:none;font:500 17px/1.4 Poppins,sans-serif;color:#fff}
+.ov-usp li{display:flex;align-items:center;gap:12px}
+.ov-usp li::before{content:"✓";flex:none;width:26px;height:26px;border-radius:999px;background:#00C75D;color:#1C2426;display:grid;place-items:center;font-weight:800;font-size:14px}
+.ov-proof{display:flex;align-items:center;gap:16px;margin-top:8px}
+.ov-proof img{flex:none;width:120px;height:80px;object-fit:cover;border-radius:10px;background:#5D6A6E}
+.ov-proof b{display:block;font:700 22px Poppins,sans-serif;color:#fff}
+.ov-proof span{display:block;font:400 15px/1.45 Poppins,sans-serif;color:#C4CAD4}
+.ov-card-1b{background:#fff;border-radius:18px;padding:32px;display:flex;flex-direction:column;gap:20px;box-shadow:0 30px 80px -30px rgba(0,0,0,.5)}
+.ov-card-1b h2{margin:0;font:700 22px Poppins,sans-serif;color:#485559}
+.ov-card-1b p{margin:0;font:400 16px/1.5 Poppins,sans-serif;color:#4A4F59}
+.ov-card-1b .ov-cta{min-height:60px}
+.ov-card-1b .ov-small{text-align:center;font:500 14px Poppins,sans-serif;color:#4A4F59}
+
+/* ===== Responsief ===== */
+@media (max-width:1023px){
+  .ov-1a .ov-wrap,.ov-1b .ov-wrap{grid-template-columns:1fr;gap:32px;padding:32px 20px}
+  .ov-preview-label{padding:20px 20px 8px}
+  .ov-h1{font-size:32px;line-height:1.2}
+  .ov-intro{font-size:17px}
+  .ov-cta{min-height:56px;white-space:normal;text-align:center}
+  .ov-1a .ov-right{height:auto;display:flex;flex-direction:column;gap:16px}
+  .ov-photo{position:static;width:100%;height:260px}
+  .ov-quote{position:static;width:100%}
+  .ov-row{display:grid;grid-template-columns:36px 1fr;column-gap:12px;row-gap:2px}
+  .ov-letter{grid-row:1 / span 2}
+  .ov-price{grid-column:2;grid-row:1;text-align:left}
+  .ov-price b{font:600 12px Poppins,sans-serif;color:#00803C}
+  .ov-who{grid-column:2;grid-row:2}
+  .ov-bar .ov-bar-in{padding:18px 20px}
+  .ov-bar-r{gap:16px 24px}
+  .ov-card-1b{padding:24px}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= VARIANT 1a ================= -->
+<div class="ov-preview-label">Variant 1a — tussenversie zonder formulier</div>
+<section class="ov-1a">
+  <div class="ov-wrap">
+    <div class="ov-left">
+      <div class="ov-badge">Al 13.000+ aanvragen sinds 2017 · 60+ gecontroleerde ontruimers</div>
+      <h1 class="ov-h1">Uw woningontruiming eenvoudig geregeld: binnen 24 uur 4 offertes</h1>
+      <p class="ov-intro">Eén korte aanvraag en u ontvangt binnen 24 uur offertes van gecontroleerde ontruimers uit uw regio. Geen gedoe, geen rondbellen.</p>
+      <div class="ov-card-1a">
+        <a class="ov-cta ov-hero-cta" href="/offerte-formulier/" data-variant="1a">Start uw aanvraag →</a>
+        <ul class="ov-trust">
+          <li>100% gratis</li>
+          <li>Vrijblijvend, u zit nergens aan vast</li>
+          <li>Binnen 24 uur reactie</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ov-right">
+      <img class="ov-photo" src="https://www.ontruimersvergelijken.nl/wp-content/uploads/2023/11/Het-team-van-Ontruimers-Vergelijken.jpg" alt="Het team van Ontruimers Vergelijken">
+      <div class="ov-quote">
+        <div class="ov-quote-head"><strong>Zo eenvoudig werkt het</strong><span>3 stappen</span></div>
+        <div class="ov-rows">
+          <div class="ov-row is-best"><div class="ov-letter">1</div><div class="ov-who"><b>Vul uw aanvraag in</b><small>Een paar korte vragen over de woning</small></div><div class="ov-price"><b>Vandaag</b></div></div>
+          <div class="ov-row"><div class="ov-letter">2</div><div class="ov-who"><b>Ontvang tot 4 offertes</b><small>Van ontruimers uit uw regio</small></div><div class="ov-price"><b>Binnen 24 uur</b></div></div>
+          <div class="ov-row"><div class="ov-letter">3</div><div class="ov-who"><b>U kiest de ontruimer</b><small>Of niet, u zit nergens aan vast</small></div><div class="ov-price"><b>Vrijblijvend</b></div></div>
+        </div>
+        <div class="ov-note">Eén aanvraag, wij zetten hem uit bij ontruimers in uw regio.<span>Gratis, en u hoeft zelf niemand te zoeken.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="ov-bar">
+  <div class="ov-bar-in">
+    <div class="ov-bar-l">Onafhankelijk platform — wij voeren zelf geen ontruimingen uit</div>
+    <div class="ov-bar-r"><span><b>13.000+</b> aanvragen</span><span><b>60+</b> ontruimers</span><span><b>12</b> provincies</span><span><b>KvK</b>-gecontroleerd</span></div>
+  </div>
+</div>
+
+<!-- ================= VARIANT 1b ================= -->
+<div class="ov-preview-label" style="margin-top:48px">Variant 1b — tussenversie zonder formulier</div>
+<section class="ov-1b">
+  <div class="ov-wrap">
+    <div class="ov-left">
+      <h1 class="ov-h1">Uw woningontruiming eenvoudig geregeld: binnen 24 uur 4 offertes</h1>
+      <p class="ov-intro">Eén aanvraag, binnen 24 uur tot 4 offertes van gecontroleerde ontruimers uit uw regio. U kiest zelf — of niet.</p>
+      <ul class="ov-usp">
+        <li>Eén aanvraag in plaats van zelf rondbellen</li>
+        <li>Binnen 24 uur reactie en duidelijkheid</li>
+        <li>Ook na overlijden, seniorenverhuizing of vervuiling</li>
+      </ul>
+      <div class="ov-proof">
+        <img src="https://www.ontruimersvergelijken.nl/wp-content/uploads/2023/11/Het-team-van-Ontruimers-Vergelijken.jpg" alt="Het team van Ontruimers Vergelijken">
+        <div><b>13.000+ mensen geholpen</b><span>Sinds 2017 · 60+ aangesloten ontruimers · alle 12 provincies</span></div>
+      </div>
+    </div>
+    <div class="ov-card-1b">
+      <h2>Start uw aanvraag</h2>
+      <p>Beantwoord een paar korte vragen over de woning en ontvang tot 4 offertes van ontruimers bij u in de buurt.</p>
+      <a class="ov-cta ov-hero-cta" href="/offerte-formulier/" data-variant="1b">Ontvang gratis 4 offertes →</a>
+      <div class="ov-small">Gratis · Vrijblijvend · Binnen 24 uur reactie</div>
+    </div>
+  </div>
+</section>
+
+<script>
+/* Meting: GA4/GTM-event bij klik op de hero-knop */
+document.querySelectorAll('.ov-hero-cta').forEach(function(a){
+  a.addEventListener('click',function(){
+    window.dataLayer=window.dataLayer||[];
+    window.dataLayer.push({event:'hero_cta_click',variant:a.dataset.variant});
+  });
+});
+</script>
+</body>
+</html>
